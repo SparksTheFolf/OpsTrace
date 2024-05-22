@@ -1,0 +1,11 @@
+{
+  "name": "opstrace",
+  "version": "0.0.1",
+  "description": "OpsTrace to to log EVERYTHING on the site",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "SparksTheFolf",
+  "license": "ISC"
+}
