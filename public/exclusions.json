@@ -2,6 +2,12 @@
     "/bootstrap.min.css",
     "/data",
     "/exclude1",
-    "/exclude2"
+    "/exclude2",
+    "/bootstrap.min.js",
+    "/jquery.min.js",
+    "/bootstrap.popper.min.js",
+    "/favicon.ico",
+    "/jquery.js",
+    "/bootstrap.min.js.map.js"
 ]
   

@@ -24,11 +24,12 @@ const formatLogRow = (log) => {
         <td>${method}</td>
         <td>${path}</td>
         <td>${timestamp}</td>
-        <td><a href="#" onclick="showDetails('${JSON.stringify(body)}')">View</a></td>
-        <td><a href="#" onclick="showDetails('${JSON.stringify(params)}')">View</a></td>
+        <td><button type="button" class="btn btn-primary" data-toggle="popover" data-content="${JSON.stringify(body)}">View</button></td>
+        <td><button type="button" class="btn btn-primary" data-toggle="popover" data-content="${JSON.stringify(params)}">View</button></td>
       </tr>
     `;
   };
+  
 
 // Function to generate the history table
 const generateHistoryTable = (userId, count) => {
@@ -40,6 +41,7 @@ const generateHistoryTable = (userId, count) => {
       <table class="table table-striped">
         <thead class="thead-dark">
           <tr>
+            <th scope="col">User</th>
             <th scope="col">List Number</th>
             <th scope="col">Operator</th>
             <th scope="col">Document ID</th>
