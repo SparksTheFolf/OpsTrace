@@ -4,6 +4,15 @@ const { getNextDocumentID } = require('./documentID');
 
 // Function to log requests
 const logRequest = (req, params = {}) => {
+  // Read the exclusion list from exclusions.json
+  const exclusionsFilePath = path.join(__dirname, './public/exclusions.json');
+  const exclusions = JSON.parse(fs.readFileSync(exclusionsFilePath, 'utf8'));
+
+  // Check if the requested path is in the exclusion list
+  if (exclusions.includes(req.originalUrl)) {
+    return;
+  }
+
   const logEntry = {
     DocumentID: getNextDocumentID(),
     method: req.method,

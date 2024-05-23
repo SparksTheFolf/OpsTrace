@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const logger = require('./logger');
+const { generateHistoryTable } = require('./history');
 
 const app = express();
 const PORT = 3000;
@@ -10,6 +11,35 @@ app.use(bodyParser.json());
 
 // Use the logger middleware for all routes
 app.use(logger);
+
+// Route for serving Bootstrap CSS
+app.get('/bootstrap.min.css', (req, res) => {
+  const bootstrapUrl = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css';
+  res.redirect(bootstrapUrl);
+});
+
+// Route for /history
+app.get('/history', (req, res) => {
+  const userId = req.headers['user'] || 'anonymous';
+  const historyTable = generateHistoryTable(userId, 100); // Get the last 100 log entries
+  res.send(`
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>History</title>
+      <!-- Import Bootstrap CSS -->
+      <link rel="stylesheet" href="/bootstrap.min.css">
+    </head>
+    <body>
+      <div class="container">
+        ${historyTable}
+      </div>
+    </body>
+    </html>
+  `);
+});
 
 // Sample routes for testing
 app.get('/', (req, res) => {
