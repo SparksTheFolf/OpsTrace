@@ -18,7 +18,7 @@ const logRequest = (req, params = {}) => {
     method: req.method,
     path: req.originalUrl,
     timestamp: new Date().toISOString(),
-    user: req.headers['user'] || 'anonymous',
+    user: req.headers['user'] || 'anonymous', // Eventually change to req.user.username from a LDAP or OAuth2 strategy
     body: req.body || {},
     params: params,
   };
