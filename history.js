@@ -49,7 +49,6 @@ const generateHistoryTable = (userId, count) => {
             <th scope="col">Path</th>
             <th scope="col">Time</th>
             <th scope="col">Body</th>
-            <th scope="col">Data</th>
           </tr>
         </thead>
         <tbody>
@@ -63,8 +62,8 @@ const generateHistoryTable = (userId, count) => {
         <td>${log.method}</td>
         <td>${log.path}</td>
         <td>${log.timestamp}</td>
-        <td><a href="#" onclick="showDetails('${JSON.stringify(log.body)}')">View</a></td>
-        <td><a href="#" onclick="showDetails('${JSON.stringify(log.params)}')">View</a></td>
+        <td><a type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="bottom" data-content='${JSON.stringify(log.body)}'">View</a></td>
+        <td><a href="#" type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="bottom" onclick="showDetails('${JSON.stringify(log.params)}')">View</a></td>
       </tr>
       `;
     });

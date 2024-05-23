@@ -27,23 +27,23 @@ app.get('/history', (req, res) => {
       <link rel="stylesheet" href="/bootstrap.min.css">
     </head>
     <body>
-      <div class="container">
-        ${historyTable}
-
-
-        <script >
-
-        $(function () {
-          $('[data-toggle="popover"]').popover()
-        })
-        
-        </script>
-
-        <script src="/jquery.js"></script>
-        <script src=/bootstrap.popper.min.js></script>
-        <script src=/bootstrap.min.js></script>
-      </div>
-    </body>
+    <div class="container">
+      ${historyTable}
+  
+      <!-- Include jQuery, Bootstrap, and Popper.js -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+      <!-- Initialize popovers -->
+      <script>
+        $(document).ready(function() {
+          $('[data-toggle="popover"]').popover();
+        });
+      </script>
+    </div>
+  </body>
+  
     </html>
   `);
 });
